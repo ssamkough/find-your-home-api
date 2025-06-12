@@ -1,4 +1,4 @@
-# auction
+# Find Your HOME 🏠
 
 Create a service that handles running a once-around auction for properties. The service should be created in Node, using TypeScript. The player is one of four participants in a service that will ask each participant to bid blindly once. The winning bid will be awarded the property. There are 10 properties total, and each bidder starts with 1000 dollars. Create three AI bidders who will bid against the player. Create three different AI strategies to compete against the player. Be creative. Some examples:
 
@@ -9,18 +9,38 @@ Create a service that handles running a once-around auction for properties. The 
 
 After each bid submitted by the API, the results and the winner are returned to the player. Each AI also receives an update of the data to be stored or computed for future rounds. You may add APIs to start and finalize the bidding process and report the total wins and money spent. You may provide a crude front-end harness or a Postman collection for bid testing.
 
-## setup
+## Setup ⚒️
+
+1. Clone repository: `git clone https://github.com/ssamkough/auction-api`
+
+2. CD into directory: `cd auction-api`
+
+3. Install dependencies: `npm i`
+
+4. Create `.env` file with these contents:
 
 ```bash
-git clone https://github.com/ssamkough/auction-api
-cd auction-api
-npm i
-npm run dev
+PORT=3000
+NODE_ENV=development
 ```
 
-## API interface
+5. Run server: `npm run dev`
 
-### Player
+## Instructions 📃
+
+You will be introduced to a prompt that will tell you to create a player. To interact with the server, the API Reference has all the available API endpoints.
+
+To create your player, find the "`POST` Create a Player" endpoint. Once you create your player, you can create no more. The created player will act as "your" player.
+
+After creating your player, you can start to place bids. To do that run the "`PUT` Make a Bid on a Single Property" endpoint. You just need to send an amount that your player wants to bid, and it'll compete with the AI bids that get automatically generated.
+
+You have access to all the rest of the APIs once the server is running. You can list all the players, list all the properties, lsit single players or properties. You can list just properties that have owners.
+
+Once all properties have been auctioned off, the API will continue to run, and you can still view all your data. The data is in-memory, so once you shut your server off, it'll lose all the data.
+
+## API Reference 📜
+
+### Player 🧍
 
 `GET` Find a Player
 
@@ -51,7 +71,7 @@ curl -X POST http://localhost:3000/api/players \
   -d '{"name": "Zibo Gao"}'
 ```
 
-### Property
+### Property 🛖
 
 `GET` Find a Property
 
@@ -81,3 +101,23 @@ curl -X PUT http://localhost:3000/api/properties/1 \
   -H "Content-Type: application/json" \
   -d '{"bid_amount": 200}'
 ```
+
+## Tech Stack 💾
+
+- JavaScript
+- Node.js
+- Express.js
+- TypeScript
+- npm
+
+## Next Steps 📐
+
+1. Store the data in a database instead of in-memory.
+2. Create a simple UI to see the auctions.
+3. Create more complex AI.
+4. Be able to create / update / delete properties.
+
+## Resources 🎒
+
+- https://expressjs.com/
+- https://blog.logrocket.com/express-typescript-node/
