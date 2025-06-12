@@ -67,10 +67,17 @@ curl -X GET http://localhost:3000/api/properties \
   -H "Content-Type: application/json"
 ```
 
-`PUT` Make a Bid
+`GET` List All Owned Properties
 
 ```bash
-curl -X PUT http://localhost:3000/api/items/1234567890 \
+curl -X GET "http://localhost:3000/api/properties?is_owner=true" \
+  -H "Content-Type: application/json"
+```
+
+`PUT` Make a Bid on a Single Property
+
+```bash
+curl -X PUT http://localhost:3000/api/properties/1 \
   -H "Content-Type: application/json" \
-  -d '{"amount": 20}'
+  -d '{"bid_amount": 200}'
 ```

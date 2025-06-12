@@ -2,7 +2,11 @@ export interface Property {
   id: number;
   created_at: Date;
   name: string;
-  owner_id?: string;
+
+  /**
+   * Foreign key to Player.id
+   */
+  owner_id?: number;
 }
 
 export let properties: Property[] = [
