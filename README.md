@@ -9,43 +9,68 @@ Create a service that handles running a once-around auction for properties. The 
 
 After each bid submitted by the API, the results and the winner are returned to the player. Each AI also receives an update of the data to be stored or computed for future rounds. You may add APIs to start and finalize the bidding process and report the total wins and money spent. You may provide a crude front-end harness or a Postman collection for bid testing.
 
-## commands
-
-### setup
+## setup
 
 ```bash
+git clone https://github.com/ssamkough/auction-api
+cd auction-api
 npm i
 npm run dev
 ```
 
-### curl
+## API interface
 
-`GET` Item
+### Player
+
+`GET` Find a Player
 
 ```bash
-curl -X GET http://localhost:3000/api/items/1749671085510 \
+curl -X GET http://localhost:3000/api/players/1 \
   -H "Content-Type: application/json"
 ```
 
-`GET` Items
+`GET` Find Me
 
 ```bash
-curl -X GET http://localhost:3000/api/items \
+curl -X GET http://localhost:3000/api/players/4 \
   -H "Content-Type: application/json"
 ```
 
-`POST` Item
+`GET` List All Players
 
 ```bash
-curl -X POST http://localhost:3000/api/items \
+curl -X GET http://localhost:3000/api/players \
+  -H "Content-Type: application/json"
+```
+
+`POST` Create a Player
+
+```bash
+curl -X POST http://localhost:3000/api/players \
   -H "Content-Type: application/json" \
-  -d '{"name": "Sample Item"}'
+  -d '{"name": "Zibo Gao"}'
 ```
 
-`PUT` Item
+### Property
+
+`GET` Find a Property
+
+```bash
+curl -X GET http://localhost:3000/api/properties/1 \
+  -H "Content-Type: application/json"
+```
+
+`GET` List All Properties
+
+```bash
+curl -X GET http://localhost:3000/api/properties \
+  -H "Content-Type: application/json"
+```
+
+`PUT` Make a Bid
 
 ```bash
 curl -X PUT http://localhost:3000/api/items/1234567890 \
   -H "Content-Type: application/json" \
-  -d '{"name": "Updated Item Name"}'
+  -d '{"amount": 20}'
 ```
