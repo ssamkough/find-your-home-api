@@ -11,9 +11,9 @@ After each bid submitted by the API, the results and the winner are returned to 
 
 ## Setup ⚒️
 
-1. Clone repository: `git clone https://github.com/ssamkough/auction-api`
+1. Clone repository: `https://github.com/ssamkough/find-your-home-api`
 
-2. CD into directory: `cd auction-api`
+2. CD into directory: `cd find-your-home-api`
 
 3. Install dependencies: `npm i`
 
